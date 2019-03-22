@@ -28,7 +28,7 @@ namespace RockLib.Configuration.Editor
             _debugProfile = debugProfile;
         }
 
-        public ConfigInfo GetConfigInfo(string projectPath = null)
+        public ConfigInfo Load(string projectPath = null)
         {
             projectPath = string.IsNullOrEmpty(projectPath) ? Environment.CurrentDirectory : projectPath;
 
@@ -302,7 +302,7 @@ namespace RockLib.Configuration.Editor
             return false;
         }
 
-        private IReadOnlyCollection<Type> GetImplementations(IEnumerable<Type> targetTypes,
+        private IReadOnlyList<Type> GetImplementations(IEnumerable<Type> targetTypes,
             IReadOnlyCollection<PackageAssemblies> allPackageAssemblies, HashSet<XDocument> usedDocumentation)
         {
             var implementations = new List<Type>();
